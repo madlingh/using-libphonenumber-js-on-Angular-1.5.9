@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>using libphonenumber-js on Angular 1.5.9</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="app.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+        <script src="https://unpkg.com/libphonenumber-js@1.7.51/bundle/libphonenumber-js.min.js"></script>
+        <script src="app.js"></script>
+
+    </head>
+    <body ng-app="app">
+        <div ng-controller="appCtr">
+            <h1>This is a demo app for using libphonenumber-js on Angular 1.5.9</h1><hr/>
+            <h2>As you type</h2>
+            <p>
+                <span class="">asYouType('US').input('2133734') result is </span>
+                <span class="general-mark">{{asYouType}}</span>
+            </p>
+            <p>
+                AsYouType().input('+12133734') result is 
+                <span class="general-mark">{{asYouType1}}</span>
+            </p>
+            <h2>Format</h2>
+            <p>
+                format('2133734253', 'US', 'International') result is 
+                <span class="general-mark"> {{format}}</span>
+            </p>
+            <p>
+                format('2133734253', 'US', 'RFC3966') result is 
+                <span class="general-mark"> {{format1}}</span>
+            </p>
+            <p>
+                format('2133734253', 'US', 'E.164') result is  
+                <span class="general-mark"> {{format2}}</span>
+            </p>
+            <h2>Parse</h2>
+            <p>
+                parsePhoneNumberFromString('Phone: 8 (800) 555 35 35.', 'RU') result is 
+                <span class="general-mark">
+                    country: {{" " + parse.country}} ,
+                    phone: {{parse.number}} ,
+                    isValid(): {{parse.isValid()}}
+                </span>
+            </p>
+            <h2>Find phone numbers</h2>
+            <p>
+                findPhoneNumbersInText(`<span style="color: red;">
+                For tech support call +7 (800) 555-35-35 internationally
+                or reach a local US branch at (213) 373-4253 ext. 1234.</span>
+                `, 'US') result is 
+            </p>
+            <p><span class="general-mark">Phone numbers found {{phoneNumber.length}}</span></p>
+            <ul>
+                <li ng-repeat="phone in phoneNumber track by $index"> 
+                    <b>Country: </b>{{phone.number.country}} ,
+                    <b>Country Calling Code: </b>{{phone.number.countryCallingCode}} ,
+                    <b>National Number: </b>{{phone.number.nationalNumber}} ,
+                    <b>Number : </b>{{phone.number.number}} , 
+                    <b>Starts At: </b>{{phone.startsAt}} ,
+                    <b>Ends At : </b>{{phone.endsAt}}
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

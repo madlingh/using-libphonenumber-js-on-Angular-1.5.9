@@ -1,0 +1,22 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 23, 2020, 5:11:03 PM
+    Author     : ThinkPad
+*/
+body
+{
+    padding: 40px;
+    font-size: 20px;
+}
+.general-mark{
+    background-color: #e3e5e6;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
